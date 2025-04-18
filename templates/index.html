@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cyberbullying Detection</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+        }
+
+        input, textarea, button {
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #unblock-form {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .result {
+            background: #ffffff30;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <script>
+        function toggleUnblockForm() {
+            const form = document.getElementById("unblock-form");
+            form.style.display = form.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <h1>🛡️ Cyberbullying Detection System</h1>
+
+    <form method="POST">
+        <input type="text" name="username" placeholder="Enter username" required><br>
+        <textarea name="comment" placeholder="Enter comment" required></textarea><br>
+        <button type="submit">Post Comment</button>
+    </form>
+
+    {% if result %}
+    <div class="result">{{ result }}</div>
+    {% endif %}
+
+    <hr style="margin: 40px 0;">
+
+    <button onclick="toggleUnblockForm()">🔓 Unblock a User</button>
+
+    <form id="unblock-form" method="POST" action="/processing">
+        <input type="text" name="unblock_user" placeholder="Username to unblock" required>
+        <button type="submit">Unblock</button>
+    </form>
+</body>
+</html>

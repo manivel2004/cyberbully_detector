@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Unblock Status</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #c3cfe2, #f5f7fa);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        h2 {
+            color: #2d3748;
+            margin-bottom: 20px;
+        }
+
+        .msg {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #4a5568;
+        }
+
+        a {
+            text-decoration: none;
+            padding: 12px 25px;
+            background-color: #3182ce;
+            color: white;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        a:hover {
+            background-color: #2b6cb0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🔓 Unblock Status</h2>
+        <div class="msg">{{ message }}</div>
+        <a href="/">⬅️ Back to Home</a>
+    </div>
+</body>
+</html>
